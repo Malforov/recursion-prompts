@@ -18,22 +18,6 @@ var factorial = function(n) {
   return n * factorial(n-1)
 };
 
-//EC1
-//n = 5
-//return n * factorial(n-1)
-  //EC2
-  //result = 4
-  //return n * factorial(n-1)
-    //EC3
-    //n = 3
-    //return n * factorial(n-1)
-      //EC4
-      //n = 2
-      //return n * factorial(n-1)
-        //EC5
-        //n = 1
-        //return n
-
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
@@ -48,44 +32,22 @@ var sum = function(array) {
 
   return sum(array);
 };
-//EC1
-//array = [1,2,3,4,5,6]
-//SecElm += FirstElm -> [1,3,3,4,5,6]
-//shift array -> [3,3,4,5,6]
-//return sum(array)
-  //EC2
-  //array = [3,3,4,5,6]
-  //SecElm += FirstElm -> [3,6,4,5,6]
-  //shift array -> [6,4,5,6]
-  //return sum(array)
-    //EC3
-    //array = [6,4,5,6]
-    //SecElm += FirstElm -> [6, 10, 5, 6]
-    //shift array -> [10, 5, 6]
-    //return sum (array)
-      //EC4
-      //array = [10, 5, 6]
-      //SecElm += FirstElm -> [10, 15, 6]
-      //shfit array -> [15, 6]
-      //return sum (array)
-        //EC5
-        //array = [15, 6]
-        //Sec Elm += FirstElm -> [15, 21]
-        //shift array -> [21]
-        //return sum (array)
-          //EC6 array = [21]
-          //return 21
-        //return 21
-      //return 21
-    //return 21
-  //return 21
-//return 21
-
-
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 var arraySum = function(array) {
+  var array = array.slice(0, array.length);
+  var sum = 0;
+
+  array.forEach((currItem) => {
+    if(!Array.isArray(currItem)) {
+      sum += currItem;
+    } else {
+      sum += arraySum(currItem);
+    }
+  });
+
+  return sum;
 };
 
 // 4. Check if a number is even.
