@@ -37,7 +37,51 @@ var factorial = function(n) {
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
 var sum = function(array) {
+  var array = array.slice(0, array.length)
+
+  if(array[1] !== undefined) {
+    array[1] += array[0];
+    array.shift();
+  } else { 
+    return array[0] || 0;
+  }
+
+  return sum(array);
 };
+//EC1
+//array = [1,2,3,4,5,6]
+//SecElm += FirstElm -> [1,3,3,4,5,6]
+//shift array -> [3,3,4,5,6]
+//return sum(array)
+  //EC2
+  //array = [3,3,4,5,6]
+  //SecElm += FirstElm -> [3,6,4,5,6]
+  //shift array -> [6,4,5,6]
+  //return sum(array)
+    //EC3
+    //array = [6,4,5,6]
+    //SecElm += FirstElm -> [6, 10, 5, 6]
+    //shift array -> [10, 5, 6]
+    //return sum (array)
+      //EC4
+      //array = [10, 5, 6]
+      //SecElm += FirstElm -> [10, 15, 6]
+      //shfit array -> [15, 6]
+      //return sum (array)
+        //EC5
+        //array = [15, 6]
+        //Sec Elm += FirstElm -> [15, 21]
+        //shift array -> [21]
+        //return sum (array)
+          //EC6 array = [21]
+          //return 21
+        //return 21
+      //return 21
+    //return 21
+  //return 21
+//return 21
+
+
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
