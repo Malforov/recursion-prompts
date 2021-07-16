@@ -69,7 +69,6 @@ var isEven = function(n) {
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
-  //if n is 0
   if(n === 0) {
     return 0;
   }
@@ -86,7 +85,83 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+  var arr = [];
+  
+  if(x === (y - 1) || x === y || x === (y + 1)) {
+    return arr
+  }
+
+  if (x < y) {
+    x ++;
+  } else {
+    x --;
+  }
+
+  arr.push(x);
+
+  return arr = arr.concat(range(x, y))
 };
+
+/*
+EC1
+x = 2
+y = 9
+arr = []
+x = 3
+arr = [3]
+return arr = arr.concat(range(x, y))
+  EC2
+  x = 3
+  y = 9
+  arr = []
+  x = 4
+  arr = [4]
+  return arr = arr.concat(range(x, y))
+    EC3
+    x = 4
+    y = 9
+    arr = []
+    x = 5
+    arr = [5]
+    return arr = arr.concat(range(x, y))
+      EC4
+      x = 5
+      y = 9
+      arr = []
+      x = 6
+      arr = [6]
+      return arr = arr.concat(range(x, y))
+        EC5
+        x = 6
+        y = 9
+        arr = []
+        x = 7
+        arr = [7]
+        return arr = arr.concat(range(x, y))
+          EC6
+          x = 7
+          y = 9
+          arr = []
+          x = 8
+          arr = [8]
+          return arr = arr.concat(range(x, y))
+            EC7
+            x = 8
+            y = 9
+            arr = []
+            return []
+          return [8].concat([])
+        return [7].concat([8])
+      return [6].concat([7, 8])
+    return [5].concat([6, 7, 8])
+  return [4].concat([5, 6, 7, 8])
+return [3].concat([4, 5, 6, 7, 8])
+-> [3, 4, 5, 6, 7, 8]
+          
+            
+          
+
+*/
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
